@@ -62,16 +62,12 @@ const dialog = document.querySelector("dialog");
 const showButton = document.querySelector(".show-button");
 const closeButton = document.querySelector(".close-button");
 
-showButton.addEventListener("click", () => {
+const addBookButton = document.querySelector(".add-book-button");
+
+addBookButton.addEventListener("click", () => {
 	dialog.showModal();
 });
 
 closeButton.addEventListener("click", () => {
 	dialog.close();
-});
-
-const addBookButton = document.querySelector(".add-book-button");
-
-addBookButton.addEventListener("click", () => {
-	dialog.showModal();
 });

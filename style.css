@@ -16,6 +16,7 @@
 	--white: #ffffff;
 	--grey: #e6e6e6;
 	--light-grey: #e0e0e0;
+	--dark-grey: #9b9b9b;
 
 	--header-bg: var(--white);
 	--main-bg: var(--background);
@@ -143,4 +144,47 @@ button {
 ::backdrop {
 	background: black;
 	opacity: 0.6;
+}
+
+dialog .close-button {
+	display: none;
+}
+
+dialog {
+	margin: 0 auto;
+	/* position: absolute; */
+	/* top: 50%; */
+	/* left: 50%; */
+	/* transform: translate(-50%, -50%); */
+	border: 1px solid red;
+	min-width: 500px;
+	padding: 0.5em;
+	/* height: ; */
+}
+
+dialog h1 {
+	margin: 0.75em;
+
+	font-family: "Playfair Display", serif;
+	text-align: center;
+}
+
+dialog label {
+	display: block;
+}
+
+dialog input {
+	width: 100%;
+
+	border: 1px solid var(--dark-grey);
+	border-radius: 0.25em;
+
+	padding: 0.5em;
+
+	font-size: 1em;
+}
+
+label {
+	margin: 1em;
+	padding: 0.5em;
 }

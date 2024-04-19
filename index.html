@@ -18,12 +18,20 @@
 		</div>
 
 		<dialog>
+			<h1>Insert new book</h1>
 			<button autofocus class="close-button">Close</button>
-			<p>Modal test</p>
+			<label for="book-title">
+				Book name
+				<input type="text" id="book-title" class="book-title" />
+			</label>
+			<label for="book-author">
+				Book author
+				<input type="text" id="book-author" class="book-author" />
+			</label>
+			<label for="book-year">
+				Book year
+				<input type="number" id="book-year" class="book-year" max="2025" />
+			</label>
 		</dialog>
-
-		<button style="border: 1px solid red" class="show-button">
-			Show dialog
-		</button>
 	</body>
 </html>
