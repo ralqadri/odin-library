@@ -41,7 +41,8 @@ body {
 }
 
 .header,
-.card {
+.card,
+dialog {
 	box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.25);
 	-webkit-box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.25);
 	-moz-box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.25);
@@ -85,7 +86,7 @@ button {
 	transition: 0.3s;
 }
 
-.header button:hover {
+button:hover {
 	filter: brightness(90%);
 }
 
@@ -144,19 +145,21 @@ button {
 ::backdrop {
 	background: black;
 	opacity: 0.6;
+
+	border: 1px solid blue;
+	/* display: flex; */
 }
 
 dialog .close-button {
-	display: none;
+	/* display: none; */
 }
 
 dialog {
 	margin: 0 auto;
-	/* position: absolute; */
-	/* top: 50%; */
-	/* left: 50%; */
-	/* transform: translate(-50%, -50%); */
-	border: 1px solid red;
+	position: absolute;
+	top: 25%;
+	border: 1px solid transparent;
+	border-radius: 8px;
 	min-width: 500px;
 	padding: 0.5em;
 	/* height: ; */
@@ -186,5 +189,45 @@ dialog input {
 
 label {
 	margin: 1em;
-	padding: 0.5em;
+	/* padding: 0.5em; */
 }
+
+.book-form {
+	/* border: 1px solid purple; */
+	margin: 1em;
+	padding: 0.5em;
+	display: flex;
+	flex-direction: column;
+}
+
+dialog button {
+	width: 80%;
+	font-size: 1em;
+	padding: 1em;
+	align-self: center;
+}
+
+dialog .close-button {
+	width: 1.5em;
+	height: 1.5em;
+
+	position: absolute;
+	top: 1px;
+	right: 2px;
+
+	background-color: transparent;
+	border-radius: 50%;
+	color: #f87171;
+}
+
+dialog .close-button:hover {
+	color: ##b91c1c;
+}
+
+/* dialog button["submit"] {
+	display: block;
+} */
+
+/* dialog[open] {
+	display: flex;
+} */

@@ -18,20 +18,36 @@
 		</div>
 
 		<dialog>
+			<button autofocus class="close-button">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="1.5em"
+					height="1.5em"
+					viewBox="0 0 24 24">
+					<rect width="24" height="24" fill="none" />
+					<path
+						fill="currentColor"
+						d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z" />
+				</svg>
+			</button>
+
 			<h1>Insert new book</h1>
-			<button autofocus class="close-button">Close</button>
-			<label for="book-title">
-				Book name
-				<input type="text" id="book-title" class="book-title" />
-			</label>
-			<label for="book-author">
-				Book author
-				<input type="text" id="book-author" class="book-author" />
-			</label>
-			<label for="book-year">
-				Book year
-				<input type="number" id="book-year" class="book-year" max="2025" />
-			</label>
+			<div class="book-form">
+				<label for="book-title">
+					Book name
+					<input type="text" id="book-title" class="book-title" />
+				</label>
+				<label for="book-author">
+					Book author
+					<input type="text" id="book-author" class="book-author" />
+				</label>
+				<label for="book-year">
+					Book year
+					<input type="number" id="book-year" class="book-year" max="2025" />
+				</label>
+
+				<button type="submit">Submit</button>
+			</div>
 		</dialog>
 	</body>
 </html>

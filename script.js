@@ -56,8 +56,6 @@ addBookToLibrary("Conversations on Love", "Natasha Lunn", 321);
 addBookToLibrary("Hall Of Small Mammals", "Thomas Pierce", 461);
 addBookToLibrary("A Little Life", "Hanya Yanagihara", 802);
 
-// showAllBooks();
-
 const dialog = document.querySelector("dialog");
 const showButton = document.querySelector(".show-button");
 const closeButton = document.querySelector(".close-button");
