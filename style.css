@@ -128,10 +128,12 @@ button:hover {
 
 .card-title {
 	font-family: "Playfair Display", serif;
-	font-size: 1.8em;
+	font-size: 1.5em;
 	font-weight: 600;
 
-	margin: 0 0 0.5rem 0;
+	margin: 1rem 0 2rem 0;
+
+	word-wrap: break-word;
 }
 
 .card-author,
@@ -222,17 +224,39 @@ dialog .close-button {
 }
 
 dialog .close-button:hover {
-	color: ##b91c1c;
+	color: #b91c1c;
 }
 
-/* dialog button["submit"] {
-	display: block;
-} */
+dialog button[type="submit"] {
+	margin: 1em 0 0 0;
+}
 
 /* dialog[open] {
 	display: flex;
 } */
 
 /* TODO: Add styling for card delete button later */
+.card-delete,
+.card-read {
+	margin: 1rem 0;
+
+	font-size: 1em;
+	height: 2em;
+}
+
 .card-delete {
+	color: #991b1b;
+	background-color: #fca5a5;
+}
+
+.read-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.read-container input[type="checkbox"] {
+	width: 1em;
+	height: 2em;
+	align-self: center;
 }

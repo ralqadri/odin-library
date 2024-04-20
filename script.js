@@ -18,6 +18,7 @@ const cardContainer = document.querySelector(".cards");
 
 // BOOK RELATED FUNCTION(S)
 
+// TODO: Clean up this function later?
 function printAllBooks() {
 	myLibrary.forEach(function (book) {
 		console.log(book);
@@ -44,25 +45,33 @@ function addBookToPage(book) {
 	const cardAuthor = document.createElement("div");
 	const cardPages = document.createElement("div");
 	const cardDelete = document.createElement("button");
+	const cardRead = document.createElement("button");
 
 	card.classList.add("card");
 	cardTitle.classList.add("card-title");
 	cardAuthor.classList.add("card-author");
 	cardPages.classList.add("card-pages");
 	cardDelete.classList.add("card-delete");
+	cardRead.classList.add("card-read");
 
 	cardTitle.textContent = book.name;
 	cardAuthor.textContent = book.author;
 	cardPages.textContent = book.pages;
 	cardDelete.textContent = "Delete";
 	cardDelete.onclick = removeBookCard;
+	// TODO: Make toggleBookRead function later
+	if (book.read) {
+		cardRead.textContent = "Read";
+	} else {
+		cardRead.textContent = "Not read";
+	}
+	// cardRead.onclick = toggleBookRead;
 
 	card.appendChild(cardTitle);
 	card.appendChild(cardAuthor);
 	card.appendChild(cardPages);
 	card.appendChild(cardDelete);
-
-	// TODO: Add `value` reset here later
+	card.appendChild(cardRead);
 
 	cardContainer.appendChild(card);
 }
@@ -78,33 +87,23 @@ function updateCardContainer(cardContainer) {
 	});
 }
 
-// TODO: Clean up console.logs later
 function removeBook(search) {
 	const index = searchIndexBook(search);
 	if (index !== -1) {
 		myLibrary.splice(index, 1);
-		console.log(`REMOVED: ${search}`);
 		updateCardContainer(cardContainer);
 	} else {
-		console.log(`NOT FOUND: ${search}`);
+		console.log(`Not found: ${search}`);
 	}
 }
 
 // A part of this code is inspired by Michal Osman
 function removeBookCard(e) {
 	const targetedCard = e.target.parentNode.firstChild.innerHTML;
-	console.log(`Targeted card is: ${targetedCard}`);
 	removeBook(targetedCard);
 }
 
-// DUMMY DATA (ADDING FILLER BOOKS TO LIBRARY)
-
-addBookToLibrary("Normal People", "Sally Rooney", 293, false);
-addBookToLibrary("Play It As It Lays", "Joan Didion", 192, false);
-addBookToLibrary("A Single Man", "Christopher Isherwood", 86, false);
-addBookToLibrary("Conversations on Love", "Natasha Lunn", 321, false);
-addBookToLibrary("Hall Of Small Mammals", "Thomas Pierce", 461, false);
-addBookToLibrary("A Little Life", "Hanya Yanagihara", 802, false);
+// TODO: Add read toggle button for each card
 
 // DIALOG & MODALS (ADD BOOK POP-UP)
 
@@ -119,6 +118,7 @@ addBookButton.addEventListener("click", () => {
 });
 
 closeButton.addEventListener("click", () => {
+	resetInputValues();
 	dialog.close();
 });
 
@@ -126,13 +126,32 @@ const submitButton = document.querySelector(".submit-button");
 submitButton.addEventListener("click", submitClick, false);
 
 function submitClick(event) {
-	console.log("submit button clicked");
 	const titleInput = document.querySelector("#book-title").value;
 	const authorInput = document.querySelector("#book-author").value;
 	const pagesInput = document.querySelector("#book-pages").value;
+	const readInput = document.querySelector("#book-read");
+	const readStatus = readInput.checked ? true : false;
 
-	addBookToLibrary(titleInput, authorInput, pagesInput);
+	console.log(titleInput, authorInput, pagesInput, readStatus);
 
+	addBookToLibrary(titleInput, authorInput, pagesInput, readStatus);
+
+	resetInputValues();
 	event.preventDefault();
 	dialog.close();
 }
+
+function resetInputValues() {
+	document.querySelector("#book-title").value = "";
+	document.querySelector("#book-author").value = "";
+	document.querySelector("#book-pages").value = "";
+}
+
+// DUMMY DATA (ADDING FILLER BOOKS TO LIBRARY)
+
+addBookToLibrary("Normal People", "Sally Rooney", 293, false);
+addBookToLibrary("Play It As It Lays", "Joan Didion", 192, false);
+addBookToLibrary("A Single Man", "Christopher Isherwood", 86, false);
+addBookToLibrary("Conversations on Love", "Natasha Lunn", 321, false);
+addBookToLibrary("Hall Of Small Mammals", "Thomas Pierce", 461, false);
+addBookToLibrary("A Little Life", "Hanya Yanagihara", 802, false);
