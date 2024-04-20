@@ -25,7 +25,8 @@
 	--subtext: #8b8b8b;
 }
 
-button {
+button,
+form {
 	all: unset;
 }
 
@@ -231,3 +232,7 @@ dialog .close-button:hover {
 /* dialog[open] {
 	display: flex;
 } */
+
+/* TODO: Add styling for card delete button later */
+.card-delete {
+}

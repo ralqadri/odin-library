@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Library</title>
+		<title>Rizki's Library</title>
 
 		<link rel="stylesheet" href="style.css" />
 		<script src="script.js" defer></script>
@@ -32,22 +32,39 @@
 			</button>
 
 			<h1>Insert new book</h1>
-			<div class="book-form">
-				<label for="book-title">
-					Book name
-					<input type="text" id="book-title" class="book-title" />
-				</label>
-				<label for="book-author">
-					Book author
-					<input type="text" id="book-author" class="book-author" />
-				</label>
-				<label for="book-year">
-					Book year
-					<input type="number" id="book-year" class="book-year" max="2025" />
-				</label>
-
-				<button type="submit">Submit</button>
-			</div>
+			<form action="">
+				<div class="book-form">
+					<label for="book-title">
+						Book name
+						<input
+							type="text"
+							id="book-title"
+							name="book-title"
+							class="book-title"
+							required />
+					</label>
+					<label for="book-author">
+						Book author
+						<input
+							type="text"
+							id="book-author"
+							name="book-author"
+							class="book-author"
+							required />
+					</label>
+					<label for="book-pages">
+						Book pages
+						<input
+							type="number"
+							id="book-pages"
+							name="book-pages"
+							class="book-pages"
+							min="1"
+							required />
+					</label>
+					<button type="submit" class="submit-button">Submit</button>
+				</div>
+			</form>
 		</dialog>
 	</body>
 </html>
