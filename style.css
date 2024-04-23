@@ -231,11 +231,18 @@ dialog button[type="submit"] {
 	margin: 1em 0 0 0;
 }
 
-/* dialog[open] {
+.read-container {
 	display: flex;
-} */
+	align-items: center;
+	justify-content: center;
+}
 
-/* TODO: Add styling for card delete button later */
+.read-container input[type="checkbox"] {
+	width: 1em;
+	height: 2em;
+	align-self: center;
+}
+
 .card-delete,
 .card-read {
 	margin: 1rem 0;
@@ -249,14 +256,4 @@ dialog button[type="submit"] {
 	background-color: #fca5a5;
 }
 
-.read-container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.read-container input[type="checkbox"] {
-	width: 1em;
-	height: 2em;
-	align-self: center;
-}
+/* TODO: Add styling for card-read button later */

@@ -18,13 +18,6 @@ const cardContainer = document.querySelector(".cards");
 
 // BOOK RELATED FUNCTION(S)
 
-// TODO: Clean up this function later?
-function printAllBooks() {
-	myLibrary.forEach(function (book) {
-		console.log(book);
-	});
-}
-
 function searchBook(search) {
 	return myLibrary.find(({ name }) => name === search);
 }
@@ -33,8 +26,8 @@ function searchIndexBook(search) {
 	return myLibrary.findIndex(({ name }) => name === search);
 }
 
-function addBookToLibrary(name, author, pages) {
-	const newBook = new Book(name, author, pages);
+function addBookToLibrary(name, author, pages, read) {
+	const newBook = new Book(name, author, pages, read);
 	myLibrary.push(newBook);
 	addBookToPage(newBook);
 }
