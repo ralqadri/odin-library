@@ -50,8 +50,6 @@ dialog {
 }
 
 .header {
-	/* border: 1px solid red; */
-
 	background: var(--header-bg);
 
 	margin-bottom: 1em;
@@ -79,7 +77,6 @@ button {
 	font-family: Inter;
 	font-weight: 700px;
 
-	/* background: var(--light-grey); */
 	background: var(--background);
 
 	text-align: center;
@@ -105,9 +102,6 @@ button:hover {
 .card {
 	border-radius: 10px;
 
-	/* margin: 0.5em; */
-	/* padding: 0.5em; */
-
 	min-height: 150px;
 	padding: 1em;
 
@@ -115,7 +109,6 @@ button:hover {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	/* gap: 0.1em; */
 
 	background-color: var(--header-bg);
 }
@@ -153,10 +146,6 @@ button:hover {
 	/* display: flex; */
 }
 
-dialog .close-button {
-	/* display: none; */
-}
-
 dialog {
 	margin: 0 auto;
 	position: absolute;
@@ -165,7 +154,6 @@ dialog {
 	border-radius: 8px;
 	min-width: 500px;
 	padding: 0.5em;
-	/* height: ; */
 }
 
 dialog h1 {
@@ -192,11 +180,9 @@ dialog input {
 
 label {
 	margin: 1em;
-	/* padding: 0.5em; */
 }
 
 .book-form {
-	/* border: 1px solid purple; */
 	margin: 1em;
 	padding: 0.5em;
 	display: flex;
@@ -278,5 +264,3 @@ dialog button[type="submit"] {
 	color: #991b1b;
 	background-color: #fca5a5;
 }
-
-/* TODO: Add styling for card-read button later */
