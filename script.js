@@ -37,34 +37,40 @@ function addBookToPage(book) {
 	const cardTitle = document.createElement("div");
 	const cardAuthor = document.createElement("div");
 	const cardPages = document.createElement("div");
-	const cardDelete = document.createElement("button");
+	const cardButtons = document.createElement("div");
 	const cardRead = document.createElement("button");
+	const cardDelete = document.createElement("button");
 
 	card.classList.add("card");
 	cardTitle.classList.add("card-title");
 	cardAuthor.classList.add("card-author");
 	cardPages.classList.add("card-pages");
-	cardDelete.classList.add("card-delete");
+	cardButtons.classList.add("card-buttons");
 	cardRead.classList.add("card-read");
+	cardDelete.classList.add("card-delete");
 
 	cardTitle.textContent = book.name;
 	cardAuthor.textContent = book.author;
 	cardPages.textContent = book.pages;
-	cardDelete.textContent = "Delete";
-	cardDelete.onclick = removeBookCard;
-	// TODO: Make toggleBookRead function later
 	if (book.read) {
 		cardRead.textContent = "Read";
+		cardRead.classList.add("btn-read-marker");
+		card.classList.add("card-read-marker");
 	} else {
 		cardRead.textContent = "Not read";
+		cardRead.classList.add("btn-unread-marker");
+		card.classList.add("card-unread-marker");
 	}
-	// cardRead.onclick = toggleBookRead;
+	cardRead.onclick = toggleReadStatus;
+	cardDelete.textContent = "Delete";
+	cardDelete.onclick = removeBookCard;
 
 	card.appendChild(cardTitle);
 	card.appendChild(cardAuthor);
 	card.appendChild(cardPages);
-	card.appendChild(cardDelete);
-	card.appendChild(cardRead);
+	cardButtons.appendChild(cardRead);
+	cardButtons.appendChild(cardDelete);
+	card.appendChild(cardButtons);
 
 	cardContainer.appendChild(card);
 }
@@ -80,23 +86,27 @@ function updateCardContainer(cardContainer) {
 	});
 }
 
-function removeBook(search) {
-	const index = searchIndexBook(search);
+// A part of this code is inspired by Michal Osman
+function removeBookCard(e) {
+	const targetedCard = e.target.parentNode.parentNode.firstChild.innerHTML;
+
+	const index = searchIndexBook(targetedCard);
 	if (index !== -1) {
 		myLibrary.splice(index, 1);
 		updateCardContainer(cardContainer);
-	} else {
-		console.log(`Not found: ${search}`);
 	}
 }
 
-// A part of this code is inspired by Michal Osman
-function removeBookCard(e) {
-	const targetedCard = e.target.parentNode.firstChild.innerHTML;
-	removeBook(targetedCard);
-}
+function toggleReadStatus(e) {
+	const targetedCard = e.target.parentNode.parentNode.firstChild.innerHTML;
 
-// TODO: Add read toggle button for each card
+	const index = searchIndexBook(targetedCard);
+	if (index !== -1) {
+		myLibrary[index].read = !myLibrary[index].read;
+	}
+
+	updateCardContainer(cardContainer);
+}
 
 // DIALOG & MODALS (ADD BOOK POP-UP)
 
@@ -125,8 +135,6 @@ function submitClick(event) {
 	const readInput = document.querySelector("#book-read");
 	const readStatus = readInput.checked ? true : false;
 
-	console.log(titleInput, authorInput, pagesInput, readStatus);
-
 	addBookToLibrary(titleInput, authorInput, pagesInput, readStatus);
 
 	resetInputValues();
@@ -139,12 +147,3 @@ function resetInputValues() {
 	document.querySelector("#book-author").value = "";
 	document.querySelector("#book-pages").value = "";
 }
-
-// DUMMY DATA (ADDING FILLER BOOKS TO LIBRARY)
-
-addBookToLibrary("Normal People", "Sally Rooney", 293, false);
-addBookToLibrary("Play It As It Lays", "Joan Didion", 192, false);
-addBookToLibrary("A Single Man", "Christopher Isherwood", 86, false);
-addBookToLibrary("Conversations on Love", "Natasha Lunn", 321, false);
-addBookToLibrary("Hall Of Small Mammals", "Thomas Pierce", 461, false);
-addBookToLibrary("A Little Life", "Hanya Yanagihara", 802, false);
