@@ -1,5 +1,5 @@
 # odin-library
-A Library app based on HTML/CSS/JS for The Odin Project, work in progress.
+A book library app based on HTML/CSS/JS for The Odin Project.
 
 # Live demo
 A live preview/demo is available here: https://ralqadri.github.io/odin-library/
